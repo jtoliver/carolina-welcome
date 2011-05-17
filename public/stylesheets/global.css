@@ -1,0 +1,354 @@
+/* Notes
+	
+	Title: Carolina Welcome 2011 - University of South Carolina
+	Author: Joshua A. Toliver
+	Colors: #131313 , #CCCCCC, #990000
+
+	Maintenance: 
+	
+		Make default image for thumbnails
+		Might have to make show image a scaled version or orginal instead of cropping.
+		Signature events needs to go to it's (show)
+		Style featured events
+		Events 'h2' title needs to go to it's (show)
+		Add time to sig, feat, events, and show
+		Make stlife logo go to website
+		Link logo to index
+		
+		Finish building admin area.
+		
+		Try to restyle carosel
+		Possibly resize logo and cocky under it.
+
+
+----------------------------------------------------------------------------------------------------*/
+
+
+/* Structure
+----------------------------------------------------------------------------------------------------*/
+body {
+	font-family: Helvetica,arial,sans-serif;
+	font-size:.9em;
+	background: #ebebeb url('../images/sitebg.jpg') repeat-y top center;
+}
+
+a img {
+	border:none;
+}
+
+/* Typo
+----------------------------------------------------------------------------------------------------*/
+@font-face {
+    font-family: 'LeagueGothicRegular';
+    src: url('../fonts/League_Gothic-webfont.eot');
+    src: url('../fonts/League_Gothic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/League_Gothic-webfont.woff') format('woff'),
+         url('../fonts/League_Gothic-webfont.ttf') format('truetype'),
+         url('../fonts/League_Gothic-webfont.svg#LeagueGothicRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'WinterthurCondensedRegular';
+    src: url('../fonts/WinterthurCondensed-webfont.eot');
+    src: url('../fonts/WinterthurCondensed-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/WinterthurCondensed-webfont.woff') format('woff'),
+         url('../fonts/WinterthurCondensed-webfont.ttf') format('truetype'),
+         url('../fonts/WinterthurCondensed-webfont.svg#WinterthurCondensedRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+h1 {  
+    font-family: 'LeagueGothicRegular', arial, serif;
+	border-bottom:10px solid #ccc;
+	font-size:4.0em;
+	margin-bottom:17px;
+	text-transform:uppercase;
+	color:#131313;
+}
+
+h1 span {
+	color:#990000;
+}
+
+h2 {  
+    font-family: 'LeagueGothicRegular', arial, serif;
+	border-bottom:2px dotted #ccc;
+	font-size:2.3em;
+	margin-bottom:5px;
+	text-transform:uppercase;
+	color:#131313;
+}
+
+h2 span {
+	color:#990000;
+}
+
+a {
+	text-decoration:none;
+	color:#131313;
+}
+
+/* Featured
+----------------------------------------------------------------------------------------------------*/
+.featured {
+	height:325px;
+	background:000;
+}
+
+/* Filter Nav
+----------------------------------------------------------------------------------------------------*/
+.filterdate {
+	border-bottom:5px solid #131313;
+	margin-bottom:10px;
+}
+
+.filterdate span {
+	background:#131313;
+	padding: 5px 10px;
+	color:#fff;
+	font-size:9px;
+	height:10px;
+	/* border radius */
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	text-transform:uppercase;
+}
+
+.datefilter {
+	height:55px;
+	text-transform:uppercase;
+	font-size:.8em;
+}
+
+.datefilter li {
+	display:inline;
+	margin-right:15px;
+}
+
+ul#portfolio-filter a {
+    font-family: 'LeagueGothicRegular', arial, serif;
+	font-size:20px;
+	background:#ccc;
+	padding:10px 20px;
+	color:#131313;
+	text-decoration:none;
+}
+
+ul#portfolio-filter a:hover {
+	-webkit-box-shadow:  0px 0px 2px  #000000;
+	-moz-box-shadow: 0px 0px 2px #000000;
+	box-shadow: 0px 0px 2px #000000; 
+}
+
+/* Signature Events
+----------------------------------------------------------------------------------------------------*/
+.list_carousel {
+	margin: 0 0 0px 0px;
+	width: 940px;
+	overflow:hidden;
+}
+
+.list_carousel ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: block;
+}
+
+.list_carousel li {
+	width: 220px;
+	height: 150px;
+	padding: 2px;
+	margin: 2px 16px 0 0;
+	display: block;
+	float: left;
+}
+
+.list_carousel li img {
+	z-index:1;
+	width:220;
+}
+
+.list_carousel li span.dt {
+	font-size:12px;
+	background:#990000;
+	color:#ebebeb;
+	padding:4px 8px;
+	float:left;
+	position:relative;
+	margin-top:-76px;
+	z-index:114;
+}
+
+.list_carousel li span.title {
+	color:#fff;
+	margin-top:5px;
+	background:#131313;
+	padding:4px 8px;
+	position:absolute;
+	margin-top:-55px;
+	z-index:115;
+	
+}
+
+#lctl {
+	float:left;
+	position: absolute;
+	margin-left:-68px;
+	margin-top:45px;
+	z-index:115;
+}
+
+#rctl {
+	float:right;
+	position: absolute;
+	margin-left:957px;
+	margin-top:45px;
+	z-index:115;
+}
+
+
+/* Events
+----------------------------------------------------------------------------------------------------*/
+.event {
+	margin-bottom:30px;
+	margin-top:10px;
+}
+
+.event h2 {
+	margin-top:-6px;
+	border-bottom:3px solid #ccc;
+	border-top:none;
+}
+
+.readmore a {
+	text-decoration:none;
+	color:#fff;
+	-webkit-box-shadow:  0px 0px 1px  #000000;
+	-moz-box-shadow: 0px 0px 1px #000000;
+	box-shadow: 0px 0px 1px #000000;
+	padding: 5px 10px;
+	width:60px;
+	font-size:13px;
+	background: #494949;
+	background: -moz-linear-gradient(top, #494949 0%, #131313 99%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#494949), color-stop(99%,#131313));
+	background: -webkit-linear-gradient(top, #494949 0%,#131313 99%);
+	background: -o-linear-gradient(top, #494949 0%,#131313 99%);
+	background: -ms-linear-gradient(top, #494949 0%,#131313 99%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#494949', endColorstr='#131313',GradientType=0 );
+	background: linear-gradient(top, #494949 0%,#131313 99%);
+}
+
+.readmore a:hover {
+	background: #BA0000;
+	background: -moz-linear-gradient(top, #BA0000 0%, #990000 99%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#BA0000), color-stop(99%,#990000));
+	background: -webkit-linear-gradient(top, #BA0000 0%,#990000 99%);
+	background: -o-linear-gradient(top, #BA0000 0%,#990000 99%);
+	background: -ms-linear-gradient(top, #BA0000 0%,#990000 99%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#BA0000', endColorstr='#990000',GradientType=0 );
+	background: linear-gradient(top, #BA0000 0%,#990000 99%);
+}
+
+
+#portfolio-list {
+	margin:0;
+	padding:0;
+}
+
+.expired {
+	position:absolute;
+	width:300px;
+	height:120px;
+	background:#131313;
+	color:#fff;
+	font-family: 'LeagueGothicRegular', arial, serif;
+	text-align:center;
+	vertical-align: middle;
+	padding-top:80px;
+	font-size: 24px;
+	text-transform:uppercase;
+	filter:alpha(opacity=80);
+	opacity:.8;
+}
+
+.eventdate {
+	font-size:12px;
+	margin-top:-5px;
+	color:#990000;
+}
+
+p.desc {
+	height:90px;
+}
+
+
+/* Footer
+----------------------------------------------------------------------------------------------------*/
+.footer {
+	border-top:10px solid #131313;
+	margin-top:40px;
+	margin-bottom:100px;
+	padding-top:10px;
+	color:#990000;
+}
+
+
+/* Twitter
+----------------------------------------------------------------------------------------------------*/
+.tweet, .query {
+	font-size:.7em;
+	line-height:15px;
+}
+
+.tweet .tweet_list, .query .tweet_list {
+    -webkit-border-radius:.5em;
+    list-style-type:none;
+    margin: 0;
+    padding: 0;
+    overflow-y:hidden;
+}
+
+.tweet .tweet_list .awesome, .tweet .tweet_list .epic, .query .tweet_list .awesome, .query .tweet_list .epic {
+    text-transform: uppercase; 
+}
+
+.tweet .tweet_list li, .query .tweet_list li {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: .5em; 
+}
+
+.tweet .tweet_list li a, .query .tweet_list li a {
+    color: #990000; 
+}
+
+.tweet .tweet_list .tweet_even, .query .tweet_list .tweet_even {
+    border-top:1px dotted #ccc;
+	border-bottom:1px dotted #ccc;
+}
+
+.tweet .tweet_list .tweet_avatar, .query .tweet_list .tweet_avatar {
+    padding-right: .5em;
+    loat: left; 
+}
+
+.tweet .tweet_list .tweet_avatar img, .query .tweet_list .tweet_avatar img {
+    vertical-align: middle; 
+}
+
+
+/* Timepicker
+----------------------------------------------------------------------------------------------------*/
+.ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
+.ui-timepicker-div dl{ text-align: left; }
+.ui-timepicker-div dl dt{ height: 25px; }
+.ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
+.ui-timepicker-div td { font-size: 90%; }
+

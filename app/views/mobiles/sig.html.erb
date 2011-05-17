@@ -1,0 +1,21 @@
+<div data-role="header">
+  <h1>Signature Events</h1>
+</div>
+
+<div data-role="content">
+	<div style="height:175px; text-align:center;"><%= image_tag('logo_mobile.png') %><br /></div>
+	<ul data-role="listview" >
+		<% @event_by_day.each do |m, events| %>
+				<li data-role="list-divider" data-theme="a"><%= m.strftime("%b %d") %></li>		
+			<% for event in events %>
+				<li>
+					<%= link_to(:controller => "mobiles", :action => "show", :id => event) do %>
+						<%= image_tag event.eventflyer.url(:mobile), :alt => event.event_title %>
+						<h3 class="ui-li-heading"><%= event.event_title %></h3>
+						<p class="ui-li-desc"><%= event.event_date.strftime("%I:%M %p") %></p>
+					<% end %>
+				</li>		
+			<% end %>
+		<% end %>
+	</ul>
+</div>

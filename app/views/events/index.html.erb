@@ -1,0 +1,72 @@
+<!-- Logo -->
+<div class="grid_4 logo">
+	<%= image_tag('logo.png') %>
+</div>
+<!--  END Logo -->
+
+<!-- Random Feature Event -->
+<div class="grid_4 featured">
+	<h2>Featured <span>Event</span></h2>
+	<%= link_to (image_tag @featrand.eventflyer.url(:medium), :alt => @featrand.event_title), @featrand %>
+	<h3><%= link_to @featrand.event_title, @featrand %></h3>
+	<%= @featrand.event_date.strftime("%b %d at %I:%M %p") %>
+</div>
+<!--  END Random Feature Event -->	
+						
+<!-- Twitter Feed -->
+<div class="grid_4 twitter">
+	<h2 class="twitter">Twitter</h2>
+	<div class="tweet"></div>
+</div>
+<!-- END Twitter Feed -->
+
+<!-- Signature Events -->
+<div class="grid_12 sig">
+<div class="sig2"></div>
+	<h2>Signature <span>Events</span></h2>
+	<a id="lctl" href="#"><img src="images/lctl.png" alt="Previous"/></a>
+	<a id="rctl" href="#"><img src="images/rctl.png" alt="Next"/></a>
+	<div class="list_carousel">
+		<ul id="sigevents">
+		<% @sig.each do |sig| %>
+			<li>
+				<%= link_to (image_tag sig.eventflyer.url(:thumb), :alt => sig.event_title), sig %><br />
+				<span class="title"><%= link_to sig.event_title, sig %></span><span class="dt"><%= sig.event_date.strftime("%b %d at %I:%M %p") %></span>	
+			</li>	
+		<% end %>
+		</ul>
+	</div>	
+</div>    
+<!-- END Signature Events -->
+
+<!-- Events -->
+<div class="grid_12"><h1>Events</h1></div>
+<div class="grid_12 datefilter">
+	<ul id="portfolio-filter">
+		<li><a href="#all" class="all">Full Schedule</a></li>
+		<% @eventdate.each do |eventdate| %>
+			<li><a href="#<%= eventdate.event_date.strftime("%m%d") %>" rel="<%= eventdate.event_date.strftime("%m%d") %>"><%= eventdate.event_date.strftime("%A, %b %d") %></a></li>
+		<% end %>
+	</ul>	
+</div>
+<ul id="portfolio-list">
+	<% @event.each do |event| %>
+	<li style="height:400px;" class="grid_4 event <%= event.event_date.strftime("%m%d") %>">
+		<div class="eventimg">			
+			<% if event.event_dateend < Time.now %>
+				<div class="expired">Event Finished</div>
+			<% end %>	
+			<%= link_to (image_tag event.eventflyer.url(:medium), :alt => event.event_title), event %>
+		</div>
+		<div class="eventtext">
+			<h2><%=link_to event.event_title, event %></h2>
+			<p class="eventdate"><%= event.event_date.strftime("%b %d at %I:%M %p") %></p>
+			<p class="desc"><%= truncate(event.event_description, :length => 194) %></p>
+			<p class="readmore"><%= link_to 'Read More', event %></p>
+		</div>
+	</li>
+	<% end %>
+</ul>	
+<!-- end Events -->
+
+		

@@ -1,0 +1,36 @@
+			
+			<!-- Logo -->
+			<div class="grid_4 logo">
+				<%=image_tag('logo.jpg') %>
+			</div>
+			<!--  END Logo -->
+			
+			<!-- Random Feature Event -->
+			<div class="grid_4 featured">
+				<h2><span>F</span>eatured Event</h2>
+				<%= image_tag(@featrand.eventflyer.url(:medium)) %>
+				<h3><%= @featrand.event_title %></h3>
+				<%= @featrand.event_date.strftime("%b %d") %>
+			</div>
+			<!--  END Random Feature Event -->	
+									
+			<!-- Twitter Feed -->
+			<div class="grid_4 twitter">
+				<h2><span>T</span>witter</h2>
+				<div class="tweet"></div>
+			</div>
+			<!-- END Twitter Feed -->
+			<div class="grid_12">
+				<h2><%= @event.event_title %> : : <span><%= @event.event_date.strftime("%b %d") %></span></h2>
+				<div class="grid_8 alpha">
+					<p><%= @event.event_description %></p>
+					<p><%= @event.event_sponsers %></p>
+					<p class="readmore"><%= link_to 'Back', events_path %></p>
+				</div>
+				<div class="grid_4 omega">
+					<%= image_tag @event.eventflyer.url(:medium) %>
+				</div>
+			</div>
+			
+			
+			

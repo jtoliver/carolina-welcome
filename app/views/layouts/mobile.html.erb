@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Carolina Welcome 2011 : : August 13, 2011 - August 19, 2011</title>
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
+	<%= csrf_meta_tag %>
+</head>
+<body>
+	<div data-role="page">
+		<%= yield %>
+		<div role="contentinfo" data-role="footer">
+			<div role="navigation" data-role="navbar">
+				<ul>
+					<li class="ui-block-a">
+						<%= link_to(:controller => "mobiles", :action => "index") do %>		
+							<p>Events</p>
+						<% end %>
+					</li>
+					<li class="ui-block-c">
+						<%= link_to(:controller => "mobiles", :action => "sig") do %>		
+							<p> Signature Events</p>
+						<% end %>
+					</li>
+					<li class="ui-block-d" data-icon="home">
+						<%= link_to(:controller => "mobiles", :action => "index") do %>		
+							<p> Links</p>
+						<% end %>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
