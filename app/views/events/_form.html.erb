@@ -1,37 +1,55 @@
 <div class="grid_12">
 	<%= form_for(@event, :html => { :multipart => true }) do |f| %>  
+	  <% if @event.errors.any? %>
+	  <div id="errorExplanation">
+		<h3><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h3>
+		<ul>
+		<% @event.errors.full_messages.each do |msg| %>
+		  <li><%= msg %></li>
+		<% end %>
+		</ul>
+	  </div>
+		<% end %>
 	  <div class="field">
 		<%= f.label(:event_title, 'Event Title', :class => 'main') %><br />
 		<%= f.text_field :event_title, :class => 'textbox' %>
 	  </div>
+	  <br />
 	  <div class="field">
-		<%= f.label(:event_date, 'Event Date and Time', :class => 'main') %><br />
+		<%= f.label(:event_date, 'Start Date and Time', :class => 'main') %><br />
 		<%= f.text_field :event_date, :class => 'textbox' %>
 	  </div>
+	  <br />
 	  <div class="field">
-		<%= f.label(:event_dateend, 'Event End Date and Time', :class => 'main') %><br />
+		<%= f.label(:event_dateend, 'End Date and Time', :class => 'main') %><br />
 		<%= f.text_field :event_dateend, :class => 'textbox' %>
 	  </div>
+	  <br />
 	  <div class="field">
 		<%= f.label(:event_description, 'Event Description', :class => 'main') %><br />
 		<%= f.text_area :event_description, :class => 'textbox' %>
 	  </div>
+	  <br />
 	  <div class="field">
 		<%= f.label(:event_sponsers, 'Event Sponsors', :class => 'main') %><br />
 		<%= f.text_field :event_sponsers, :class => 'textbox' %>
 	  </div>
+	  <br />
 	  <div class="field">
 		<%= f.label(:eventflyer, 'Do you have a thumbnail', :class => 'main') %><br />
 		<%= f.file_field :eventflyer %>
 	  </div>
+	  <br />
 	  <div class="field">
 		<%= f.label(:event_status_sig, 'Is this a Signature Event?', :class => 'main') %><br />
 		<%= f.check_box :event_status_sig, :class => 'textbox' %>
 	  </div>
+	  <br />
 	  <div class="field">
 		<%= f.label(:event_status_feat, 'Is this a Featured Event?', :class => 'main') %><br />
 		<%= f.check_box :event_status_feat, :class => 'textbox' %>
 	  </div>
+	  <br />
 	  <div class="field">
 		<%= f.submit 'Save', :class => 'btn', :id => 'emphasis' %>
 	  </div>

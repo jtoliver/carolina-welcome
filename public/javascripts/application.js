@@ -1,5 +1,5 @@
-
 $(function() {
+
 	// signature events carosel
 	$("#sigevents").carouFredSel({
 		width: 960,
@@ -48,8 +48,5 @@ $(function() {
 		timeFormat: 'hh:mm:ss',
 		dateFormat: 'yy-mm-dd'
 	});
-	
-
-
-	
+		
 });

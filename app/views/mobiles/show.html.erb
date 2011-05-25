@@ -1,11 +1,15 @@
 <div data-role="header">
-  <h1><%= @mobile.event_title %></h1>
-   <%= link_to 'Home', mobiles_url, "class" => "ui-btn-left" %>
+  <h1>CW2011<%= @mobile.event_title %></h1>
+   <%= link_to 'Home', mobiles_path, "class" => "ui-btn-left" %>
 </div>
 
 
 <div data-role="content"
-	<%= image_tag @mobile.eventflyer.url(:thumb), :alt => @mobile.event_title %>
+	<% if !@mobile.eventflyer_file_name.nil? %>
+		<%= image_tag @mobile.eventflyer.url(:thumb), :alt => @mobile.event_title %>
+	<% else %>
+		<%= image_tag('cw220.png') %>
+	<% end %>	
 	<h4><%= @mobile.event_date.strftime("%b %d at %I:%M %p") %></h4>
 	<p><%= @mobile.event_description %></p>
 	<p><%= @mobile.event_sponsers %></p>

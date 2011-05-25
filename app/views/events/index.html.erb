@@ -1,15 +1,19 @@
 <!-- Logo -->
 <div class="grid_4 logo">
-	<%= image_tag('logo.png') %>
+	<%= link_to image_tag('logo.png'), :action => 'index'	%>
 </div>
 <!--  END Logo -->
 
 <!-- Random Feature Event -->
 <div class="grid_4 featured">
 	<h2>Featured <span>Event</span></h2>
-	<%= link_to (image_tag @featrand.eventflyer.url(:medium), :alt => @featrand.event_title), @featrand %>
+	<% if !@featrand.eventflyer_file_name.nil? %>
+		<%= link_to (image_tag @featrand.eventflyer.url(:medium), :alt => @featrand.event_title), @featrand %>
+	<% else %>
+		<%= link_to image_tag('cw300.png'), @featrand %>
+	<% end %>
 	<h3><%= link_to @featrand.event_title, @featrand %></h3>
-	<%= @featrand.event_date.strftime("%b %d at %I:%M %p") %>
+	<span class="date"><%= @featrand.event_date.strftime("%b %d at %I:%M %p") %></span>
 </div>
 <!--  END Random Feature Event -->	
 						
@@ -30,8 +34,12 @@
 		<ul id="sigevents">
 		<% @sig.each do |sig| %>
 			<li>
-				<%= link_to (image_tag sig.eventflyer.url(:thumb), :alt => sig.event_title), sig %><br />
-				<span class="title"><%= link_to sig.event_title, sig %></span><span class="dt"><%= sig.event_date.strftime("%b %d at %I:%M %p") %></span>	
+				<% if !sig.eventflyer_file_name.nil? %>
+					<%= link_to (image_tag sig.eventflyer.url(:thumb), :alt => sig.event_title), sig %><br />
+				<% else %>
+					<%= link_to image_tag('cw220.png'), sig %>
+				<% end %>	
+				<span class="title"><%= link_to sig.event_title, sig %></span><br /><br /><span class="dt"><%= sig.event_date.strftime("%b %d at %I:%M %p") %></span>	
 			</li>	
 		<% end %>
 		</ul>
@@ -51,12 +59,16 @@
 </div>
 <ul id="portfolio-list">
 	<% @event.each do |event| %>
-	<li style="height:400px;" class="grid_4 event <%= event.event_date.strftime("%m%d") %>">
+	<li class="grid_4 event <%= event.event_date.strftime("%m%d") %>">
 		<div class="eventimg">			
-			<% if event.event_dateend < Time.now %>
+			<% if Time.now > event.event_dateend.to_time %>
 				<div class="expired">Event Finished</div>
 			<% end %>	
-			<%= link_to (image_tag event.eventflyer.url(:medium), :alt => event.event_title), event %>
+			<% if !event.eventflyer_file_name.nil? %>
+				<%= link_to (image_tag event.eventflyer.url(:medium), :alt => event.event_title), event %>
+			<% else %>
+				<%= link_to image_tag('cw300.png'), event %>
+			<% end %>	
 		</div>
 		<div class="eventtext">
 			<h2><%=link_to event.event_title, event %></h2>

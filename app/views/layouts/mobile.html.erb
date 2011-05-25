@@ -6,15 +6,34 @@
 	<script src="http://code.jquery.com/jquery-1.5.2.min.js"></script>
 	<script src="http://code.jquery.com/mobile/1.0a4.1/jquery.mobile-1.0a4.1.min.js"></script>
 	<%= csrf_meta_tag %>
+	<style type="text/css">
+		body {
+			background:#fff;
+		}
+		.ui-bar-b {
+			background: #c90000;
+			background: -moz-linear-gradient(top, #c90000 0%, #90122a 100%);
+			background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c90000), color-stop(100%,#90122a));
+			background: -webkit-linear-gradient(top, #c90000 0%,#90122a 100%);
+			background: -o-linear-gradient(top, #c90000 0%,#90122a 100%);
+			background: -ms-linear-gradient(top, #c90000 0%,#90122a 100%);
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#C90000', endColorstr='#90122a',GradientType=0 );
+			background: linear-gradient(top, #c90000 0%,#90122a 100%);
+			border:1px solid #90122a;
+		}
+		.ui-btn-inner {
+			border: #;
+		}
+	</style>
 </head>
 <body>
 	<div data-role="page">
 		<%= yield %>
-		<div role="contentinfo" data-role="footer">
-			<div role="navigation" data-role="navbar">
+		<div role="contentinfo" data-role="footer" data-theme="c">
+			<div role="navigation" data-role="navbar" >
 				<ul>
 					<li class="ui-block-a">
-						<%= link_to(:controller => "mobiles", :action => "index") do %>		
+						<%= link_to(mobiles_path) do %>		
 							<p>Events</p>
 						<% end %>
 					</li>

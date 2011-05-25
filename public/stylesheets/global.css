@@ -2,23 +2,17 @@
 	
 	Title: Carolina Welcome 2011 - University of South Carolina
 	Author: Joshua A. Toliver
-	Colors: #131313 , #CCCCCC, #990000
+	Colors: #131313 , #CCCCCC, #90122a
 
 	Maintenance: 
 	
 		Make default image for thumbnails
-		Might have to make show image a scaled version or orginal instead of cropping.
-		Signature events needs to go to it's (show)
+		Add vailidation for new event form
 		Style featured events
-		Events 'h2' title needs to go to it's (show)
-		Add time to sig, feat, events, and show
-		Make stlife logo go to website
-		Link logo to index
-		
-		Finish building admin area.
-		
-		Try to restyle carosel
-		Possibly resize logo and cocky under it.
+		Finish building admin area. -> style index, forms, and check routing.
+		*Add random stock images
+		*fix browser issues
+		*paperclip browse button in new
 
 
 ----------------------------------------------------------------------------------------------------*/
@@ -26,6 +20,7 @@
 
 /* Structure
 ----------------------------------------------------------------------------------------------------*/
+
 body {
 	font-family: Helvetica,arial,sans-serif;
 	font-size:.9em;
@@ -38,6 +33,7 @@ a img {
 
 /* Typo
 ----------------------------------------------------------------------------------------------------*/
+
 @font-face {
     font-family: 'LeagueGothicRegular';
     src: url('../fonts/League_Gothic-webfont.eot');
@@ -68,11 +64,11 @@ h1 {
 	font-size:4.0em;
 	margin-bottom:17px;
 	text-transform:uppercase;
-	color:#131313;
+	color:#333;
 }
 
 h1 span {
-	color:#990000;
+	color:#90122a;
 }
 
 h2 {  
@@ -81,11 +77,11 @@ h2 {
 	font-size:2.3em;
 	margin-bottom:5px;
 	text-transform:uppercase;
-	color:#131313;
+	color:#333;
 }
 
 h2 span {
-	color:#990000;
+	color:#90122a;
 }
 
 a {
@@ -95,20 +91,42 @@ a {
 
 /* Featured
 ----------------------------------------------------------------------------------------------------*/
-.featured {
-	height:325px;
-	background:000;
+
+.featured h3 a, .featured h3 {
+	color:#333;
+	font-size:22px;
+	padding: 10px;
+	font-family: 'LeagueGothicRegular', arial, serif;
+	background:#ccc url('../images/filterbtn.jpg');
+	text-transform:uppercase;
+	width: 280px;
+	position:relative;
+	margin-top:-15px;
+}
+
+.featured span.date {
+	font-size:16px;
+	font-family: 'LeagueGothicRegular', arial, serif;
+	background:#f5f5f5;
+	border:1px solid #eaeaea;
+	color:#333;
+	padding:4px 8px;
+	text-transform:uppercase;
+	margin-top:-97px;
+	position:absolute;
+	float:left;
 }
 
 /* Filter Nav
 ----------------------------------------------------------------------------------------------------*/
+
 .filterdate {
-	border-bottom:5px solid #131313;
+	border-bottom:5px solid #333;
 	margin-bottom:10px;
 }
 
 .filterdate span {
-	background:#131313;
+	background:#333;
 	padding: 5px 10px;
 	color:#fff;
 	font-size:9px;
@@ -133,13 +151,14 @@ a {
 ul#portfolio-filter a {
     font-family: 'LeagueGothicRegular', arial, serif;
 	font-size:20px;
-	background:#ccc;
+	background:#ccc url('../images/filterbtn.jpg');
 	padding:10px 20px;
-	color:#131313;
+	color:#333;
 	text-decoration:none;
 }
 
 ul#portfolio-filter a:hover {
+	background:#ccc url('../images/filterbtn_over.jpg');
 	-webkit-box-shadow:  0px 0px 2px  #000000;
 	-moz-box-shadow: 0px 0px 2px #000000;
 	box-shadow: 0px 0px 2px #000000; 
@@ -147,6 +166,7 @@ ul#portfolio-filter a:hover {
 
 /* Signature Events
 ----------------------------------------------------------------------------------------------------*/
+
 .list_carousel {
 	margin: 0 0 0px 0px;
 	width: 940px;
@@ -162,7 +182,7 @@ ul#portfolio-filter a:hover {
 
 .list_carousel li {
 	width: 220px;
-	height: 150px;
+	height: 170px;
 	padding: 2px;
 	margin: 2px 16px 0 0;
 	display: block;
@@ -171,29 +191,32 @@ ul#portfolio-filter a:hover {
 
 .list_carousel li img {
 	z-index:1;
-	width:220;
 }
 
 .list_carousel li span.dt {
-	font-size:12px;
-	background:#990000;
-	color:#ebebeb;
+	font-size:16px;
+	font-family: 'LeagueGothicRegular', arial, serif;
+	background:#f5f5f5;
+	border:1px solid #eaeaea;
+	color:#333;
 	padding:4px 8px;
-	float:left;
-	position:relative;
-	margin-top:-76px;
-	z-index:114;
+	text-transform:uppercase;
+	margin-top:-75px;
+	position:absolute;
 }
 
-.list_carousel li span.title {
-	color:#fff;
-	margin-top:5px;
-	background:#131313;
+.list_carousel li span.title a {
+	color:#333;
+	font-size:22px;
+	font-family: 'LeagueGothicRegular', arial, serif;
+	background:#ccc url('../images/filterbtn.jpg');
+	margin-bottom:6px;
 	padding:4px 8px;
-	position:absolute;
-	margin-top:-55px;
-	z-index:115;
-	
+	text-transform:uppercase;
+}
+
+.list_carousel li span.title a:hover {
+	background:#ccc url('../images/filterbtn_over.jpg');	
 }
 
 #lctl {
@@ -215,45 +238,36 @@ ul#portfolio-filter a:hover {
 
 /* Events
 ----------------------------------------------------------------------------------------------------*/
+
 .event {
 	margin-bottom:30px;
 	margin-top:10px;
 }
 
 .event h2 {
-	margin-top:-6px;
-	border-bottom:3px solid #ccc;
+	margin:-6px 0 0 0;
+	border-bottom:2px solid #eaeaea;
 	border-top:none;
+	color:#333;
+}
+
+.eventtext {
+	padding:5px;
 }
 
 .readmore a {
 	text-decoration:none;
-	color:#fff;
-	-webkit-box-shadow:  0px 0px 1px  #000000;
-	-moz-box-shadow: 0px 0px 1px #000000;
-	box-shadow: 0px 0px 1px #000000;
+	color:#333;
 	padding: 5px 10px;
 	width:60px;
-	font-size:13px;
-	background: #494949;
-	background: -moz-linear-gradient(top, #494949 0%, #131313 99%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#494949), color-stop(99%,#131313));
-	background: -webkit-linear-gradient(top, #494949 0%,#131313 99%);
-	background: -o-linear-gradient(top, #494949 0%,#131313 99%);
-	background: -ms-linear-gradient(top, #494949 0%,#131313 99%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#494949', endColorstr='#131313',GradientType=0 );
-	background: linear-gradient(top, #494949 0%,#131313 99%);
+	font-size:18px;
+	background:#ccc url('../images/filterbtn.jpg');
+	font-family: 'LeagueGothicRegular', arial, serif;
+	text-transform:uppercase;
 }
 
 .readmore a:hover {
-	background: #BA0000;
-	background: -moz-linear-gradient(top, #BA0000 0%, #990000 99%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#BA0000), color-stop(99%,#990000));
-	background: -webkit-linear-gradient(top, #BA0000 0%,#990000 99%);
-	background: -o-linear-gradient(top, #BA0000 0%,#990000 99%);
-	background: -ms-linear-gradient(top, #BA0000 0%,#990000 99%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#BA0000', endColorstr='#990000',GradientType=0 );
-	background: linear-gradient(top, #BA0000 0%,#990000 99%);
+	background:#ccc url('../images/filterbtn_over.jpg');
 }
 
 
@@ -262,10 +276,23 @@ ul#portfolio-filter a:hover {
 	padding:0;
 }
 
+#portfolio-list li img {
+	padding:5px 5px 0 5px;
+	width:288px;
+	height:192px;
+}
+
+#portfolio-list li {
+	border:1px solid #eaeaea;
+	background:#f5f5f5;
+	width:298px;
+	height:418px;
+}
+
 .expired {
 	position:absolute;
-	width:300px;
-	height:120px;
+	width:288px;
+	height:112px;
 	background:#131313;
 	color:#fff;
 	font-family: 'LeagueGothicRegular', arial, serif;
@@ -276,32 +303,71 @@ ul#portfolio-filter a:hover {
 	text-transform:uppercase;
 	filter:alpha(opacity=80);
 	opacity:.8;
+	margin: 5px 0 0 5px;
 }
 
 .eventdate {
-	font-size:12px;
-	margin-top:-5px;
-	color:#990000;
+	font-size:20px;
+	margin-top:0px;
+	color:#666;
+	font-family: 'LeagueGothicRegular', arial, serif;
+	text-transform:uppercase;
+	
 }
 
 p.desc {
-	height:90px;
+	height:88px;
+	color:#666;
 }
 
+td {
+	padding:5px;
+	background:#eaeaea;
+}
+
+th {
+	background:#eaeaea;
+	padding:4px 8px;
+	height:50px;
+	font-family: 'LeagueGothicRegular', arial, serif;
+	font-size:20px;
+	text-transform:uppercase;
+	color:#333;
+	border-bottom:3px solid #333;
+	
+}
+
+td a:hover {
+	text-decoration: underline;
+}
+
+p.notice {
+	background:#e0f6dd;
+	border: 1px solid #7cc576;
+	padding:10px;
+	width:920px;
+	height:30px;
+	color:#333;
+	font-family: 'LeagueGothicRegular', arial, serif;
+	text-transform:uppercase;
+	font-size:28px;
+}
 
 /* Footer
 ----------------------------------------------------------------------------------------------------*/
+
 .footer {
-	border-top:10px solid #131313;
+	border-top:10px solid #ccc;
 	margin-top:40px;
 	margin-bottom:100px;
 	padding-top:10px;
-	color:#990000;
+	color:#90122a;
 }
 
 
 /* Twitter
 ----------------------------------------------------------------------------------------------------*/
+
 .tweet, .query {
 	font-size:.7em;
 	line-height:15px;
@@ -326,7 +392,7 @@ p.desc {
 }
 
 .tweet .tweet_list li a, .query .tweet_list li a {
-    color: #990000; 
+    color: #90122a; 
 }
 
 .tweet .tweet_list .tweet_even, .query .tweet_list .tweet_even {
@@ -346,9 +412,70 @@ p.desc {
 
 /* Timepicker
 ----------------------------------------------------------------------------------------------------*/
+
 .ui-timepicker-div .ui-widget-header{ margin-bottom: 8px; }
 .ui-timepicker-div dl{ text-align: left; }
 .ui-timepicker-div dl dt{ height: 25px; }
 .ui-timepicker-div dl dd{ margin: -25px 0 10px 65px; }
 .ui-timepicker-div td { font-size: 90%; }
 
+/* Forms
+----------------------------------------------------------------------------------------------------*/
+label {
+	background:#ccc url('../images/filterbtn.jpg');	
+	padding: 4px 8px;
+	float:left;
+	color:#333;
+	font-family: 'LeagueGothicRegular', arial, serif;
+	font-size:20px;
+	margin-right: 0.5em;
+	margin-top: 0.8em;
+	width:170px;
+	display:block;
+	text-align:right;
+	text-transform:uppercase;
+}
+
+input {
+	height:20px;
+	padding:4px 8px;
+	border: 1px solid #eaeaea;
+	font-family: 'LeagueGothicRegular', arial, serif;
+	font-size:20px;
+	color:#333;
+	background:#f5f5f5;
+}
+
+textarea {
+	width:300px;
+	padding:4px 8px;
+	border: 1px solid #eaeaea;
+	color:#333;
+	background:#f5f5f5;
+}
+
+input[type="submit"] {
+	text-decoration:none;
+	color:#333;
+	padding: 5px 10px;
+	width:60px;
+	height:20px;
+	font-size:18px;
+	background:#ccc url('../images/filterbtn.jpg');
+	font-family: 'LeagueGothicRegular', arial, serif;
+	text-transform:uppercase;
+}
+
+#errorExplanation {
+	background:#f6dbe3;
+	border: 1px solid #d9685c;
+	padding:10px;
+	width:500px;
+}
+
+#errorExplanation h3 {
+	color:#333;
+	font-family: 'LeagueGothicRegular', arial, serif;
+	text-transform:uppercase;
+	font-size:28px;
+}

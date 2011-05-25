@@ -1,16 +1,20 @@
 			
 			<!-- Logo -->
 			<div class="grid_4 logo">
-				<%=image_tag('logo.jpg') %>
+				<%=image_tag('logo.png') %>
 			</div>
 			<!--  END Logo -->
 			
 			<!-- Random Feature Event -->
 			<div class="grid_4 featured">
 				<h2><span>F</span>eatured Event</h2>
-				<%= image_tag(@featrand.eventflyer.url(:medium)) %>
+				<% if !@featrand.eventflyer_file_name.nil? %>
+					<%= image_tag @featrand.eventflyer.url(:medium), :alt => @featrand.event_title %>
+				<% else %>
+					<%= image_tag('cw300.png') %>
+				<% end %>
 				<h3><%= @featrand.event_title %></h3>
-				<%= @featrand.event_date.strftime("%b %d") %>
+				<span class="date"><%= @featrand.event_date.strftime("%b %d at %I:%M %p") %></span>
 			</div>
 			<!--  END Random Feature Event -->	
 									
@@ -21,14 +25,18 @@
 			</div>
 			<!-- END Twitter Feed -->
 			<div class="grid_12">
-				<h2><%= @event.event_title %> : : <span><%= @event.event_date.strftime("%b %d") %></span></h2>
+				<h2><%= @event.event_title %> : : <span><%= @event.event_date.strftime("%b %d at %I:%M %p") %></span></h2>
 				<div class="grid_8 alpha">
 					<p><%= @event.event_description %></p>
 					<p><%= @event.event_sponsers %></p>
 					<p class="readmore"><%= link_to 'Back', events_path %></p>
 				</div>
 				<div class="grid_4 omega">
-					<%= image_tag @event.eventflyer.url(:medium) %>
+						<% if !@event.eventflyer.nil? %>
+							<%= image_tag @event.eventflyer.url(:medium) %>
+						<% else %>
+							<%= image_tag('cw220.png') %>
+						<% end %>				
 				</div>
 			</div>
 			

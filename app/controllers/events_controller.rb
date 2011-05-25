@@ -1,5 +1,7 @@
 class EventsController < ApplicationController
 
+	before_filter :authenticate, :only => [:destroy, :admin, :new]
+
 	def index
 		@event = Event.currentevents
 		
@@ -7,12 +9,10 @@ class EventsController < ApplicationController
 		
 		#random featured
 		@feat = Event.currentevents.where(:event_status_feat => true)
-		@featcount = Event.currentevents.where(:event_status_feat => true).count
-		@rand = rand(@featcount)
-		@featrand = @feat[@rand]
+		@featrand = @feat[rand(@feat.count)]
 		
 		@eventdate = Event.currentevents.group("date(event_date)").order("event_date")
-		
+
 		if mobile_device?
 			redirect_to :controller => "mobiles", :action => "index"
 		end
@@ -20,7 +20,7 @@ class EventsController < ApplicationController
 	
 	# show all events for the admin
 	def admin
-		@event = Event.all
+		@event = Event.order("event_date ASC")
 	end
 
 	def new
@@ -31,7 +31,7 @@ class EventsController < ApplicationController
 		@event = Event.new(params[:event])
 		respond_to do |format|
 			if @event.save
-				format.html { redirect_to(@event, :notice => 'Event was successfully created.') }
+				format.html { redirect_to(new_event_path, :notice => 'Event was successfully created.') }
 			else
 				format.html { render :action => "new" }
 			end
@@ -39,14 +39,14 @@ class EventsController < ApplicationController
 	end
 	
 	def edit
-		@event = Event.find(param[:id])
+		@event = Event.find(params[:id])
 	end
 	
 	def update
 		@event = Event.find(params[:id])
 		respond_to do |format|
 			if @event.update_attributes(params[:event])
-				format.html { redirect_to(@event, :notice => 'Event was successfully updated.') }
+				format.html { redirect_to(admin_url, :notice => 'Event was successfully updated.') }
 			else
 				format.html { render :action => "edit" }
 			end
@@ -58,17 +58,15 @@ class EventsController < ApplicationController
 		
 		#random featured
 		@feat = Event.currentevents.where(:event_status_feat => true)
-		@featcount = Event.currentevents.where(:event_status_feat => true).count
-		@rand = rand(@featcount)
-		@featrand = @feat[@rand]
+		@featrand = @feat[rand(@feat.count)]
 	end
 	
 	def destroy
 		@event = Event.find(params[:id])
 		@event.destroy
 		respond_to do |format|
-		  format.html { redirect_to(events_url) }
+		  format.html { redirect_to(admin_url) }
 		end
 	end
-	
-end
+
+	end

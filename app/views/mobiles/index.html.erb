@@ -1,16 +1,21 @@
 <div data-role="header">
   <h1>Events</h1>
 </div>
-
+	<div style="height:100%; width:100%; background:#fff; text-align:center;">
+		<%= image_tag('logo_mobile2.png') %>
+	</div>
 <div data-role="content">
-	<div style="height:175px; text-align:center;"><%= image_tag('logo_mobile.png') %><br /></div>
 	<ul data-role="listview">
 	<% @event_by_day.each do |m, events| %>
 				<li data-role="list-divider"><%= m.strftime("%b %d") %></li>		
 			<% for event in events %>
 				<li>
-					<%= link_to(:controller => "mobiles", :action => "show", :id => event) do %>
-						<%= image_tag event.eventflyer.url(:mobile), :alt => event.event_title %>
+					<%= link_to(mobile_path(event)) do %>
+						<% if !event.eventflyer_file_name.nil? %>
+							<%= image_tag event.eventflyer.url(:mobile), :alt => event.event_title %>
+						<% else %>
+							<%= image_tag('cw80.png') %>
+						<% end %>	
 						<h3 class="ui-li-heading"><%= event.event_title %></h3>
 						<p class="ui-li-desc"><%= event.event_date.strftime("%I:%M %p") %></p>
 					<% end %>
