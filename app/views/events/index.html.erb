@@ -7,13 +7,16 @@
 <!-- Random Feature Event -->
 <div class="grid_4 featured">
 	<h2>Featured <span>Event</span></h2>
-	<% if !@featrand.eventflyer_file_name.nil? %>
-		<%= link_to (image_tag @featrand.eventflyer.url(:medium), :alt => @featrand.event_title), @featrand %>
-	<% else %>
-		<%= link_to image_tag('cw300.png'), @featrand %>
-	<% end %>
+	<% if !@featrand.nil? %>
+		<% if !@featrand.eventflyer_file_name.nil? %>
+			<%= link_to (image_tag @featrand.eventflyer.url(:medium), :alt => @featrand.event_title), @featrand %>
+		<% else %>
+			<%= link_to image_tag('cw300.png'), @featrand %>
+		<% end %>
+	
 	<h3><%= link_to @featrand.event_title, @featrand %></h3>
 	<span class="date"><%= @featrand.event_date.strftime("%b %d at %I:%M %p") %></span>
+	<% end %>
 </div>
 <!--  END Random Feature Event -->	
 						
