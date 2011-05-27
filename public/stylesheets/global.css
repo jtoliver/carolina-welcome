@@ -25,6 +25,7 @@ body {
 	font-family: Helvetica,arial,sans-serif;
 	font-size:.9em;
 	background: #ebebeb url('../images/sitebg.jpg') repeat-y top center;
+	color:#333;
 }
 
 a img {
@@ -82,6 +83,13 @@ h2 {
 
 h2 span {
 	color:#90122a;
+}
+
+h3 {
+    font-family: 'LeagueGothicRegular', arial, serif;
+	text-transform:uppercase;
+	font-size:1.7em;
+	margin-bottom:4px;
 }
 
 a {
@@ -361,7 +369,15 @@ p.notice {
 	margin-top:40px;
 	margin-bottom:100px;
 	padding-top:10px;
+} 
+
+.footer a{
+	text-decoration:underline;
 	color:#90122a;
+} 
+
+.footer a:hover {
+	text-decoration:underline;
 }
 
 
