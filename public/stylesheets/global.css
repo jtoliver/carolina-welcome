@@ -75,7 +75,7 @@ h1 span {
 h2 {  
     font-family: 'LeagueGothicRegular', arial, serif;
 	border-bottom:2px dotted #ccc;
-	font-size:2.3em;
+	font-size:2.0em;
 	margin-bottom:5px;
 	text-transform:uppercase;
 	color:#333;
@@ -90,6 +90,7 @@ h3 {
 	text-transform:uppercase;
 	font-size:1.7em;
 	margin-bottom:4px;
+    color:#333;
 }
 
 a {
@@ -100,29 +101,31 @@ a {
 /* Featured
 ----------------------------------------------------------------------------------------------------*/
 
+.ftext {
+	background:#ccc url('../images/filterbtn.jpg');
+	width: 280px;
+	height:40px;
+	padding:10px;
+}
+
 .featured h3 a, .featured h3 {
-	color:#333;
+	color:#ebebeb;
 	font-size:22px;
 	padding: 10px;
 	font-family: 'LeagueGothicRegular', arial, serif;
-	background:#ccc url('../images/filterbtn.jpg');
 	text-transform:uppercase;
-	width: 280px;
 	position:relative;
 	margin-top:-15px;
 }
 
-.featured span.date {
+.featured div.date {
 	font-size:16px;
 	font-family: 'LeagueGothicRegular', arial, serif;
-	background:#f5f5f5;
-	border:1px solid #eaeaea;
+	border-bottom:1px dotted #ccc;
 	color:#333;
 	padding:4px 8px;
 	text-transform:uppercase;
-	margin-top:-97px;
-	position:absolute;
-	float:left;
+
 }
 
 /* Filter Nav
@@ -146,14 +149,17 @@ a {
 }
 
 .datefilter {
-	height:55px;
+	height:155px;
 	text-transform:uppercase;
 	font-size:.8em;
 }
 
 .datefilter li {
 	display:inline;
-	margin-right:15px;
+	margin-right:5px;
+	margin-bottom:25px;
+	float:left;
+
 }
 
 ul#portfolio-filter a {
@@ -161,7 +167,7 @@ ul#portfolio-filter a {
 	font-size:20px;
 	background:#ccc url('../images/filterbtn.jpg');
 	padding:10px 20px;
-	color:#333;
+	color:#ebebeb;
 	text-decoration:none;
 }
 
@@ -190,7 +196,7 @@ ul#portfolio-filter a:hover {
 
 .list_carousel li {
 	width: 220px;
-	height: 170px;
+	height: 190px;
 	padding: 2px;
 	margin: 2px 16px 0 0;
 	display: block;
@@ -201,29 +207,32 @@ ul#portfolio-filter a:hover {
 	z-index:1;
 }
 
-.list_carousel li span.dt {
+.list_carousel li div.dt {
 	font-size:16px;
 	font-family: 'LeagueGothicRegular', arial, serif;
-	background:#f5f5f5;
-	border:1px solid #eaeaea;
+	border-bottom:1px dotted #ccc;
+	width:214px;
 	color:#333;
-	padding:4px 8px;
+	padding:3px;
 	text-transform:uppercase;
-	margin-top:-75px;
-	position:absolute;
+	margin-top:-30px;
 }
 
-.list_carousel li span.title a {
-	color:#333;
-	font-size:22px;
+.list_carousel li div.title a {
+	color:#ebebeb;
+	font-size:16px;
 	font-family: 'LeagueGothicRegular', arial, serif;
-	background:#ccc url('../images/filterbtn.jpg');
-	margin-bottom:6px;
 	padding:4px 8px;
 	text-transform:uppercase;
 }
 
-.list_carousel li span.title a:hover {
+.list_carousel li div.title {
+	width:214px;
+	background:#ccc url('../images/filterbtn.jpg');
+	padding:3px;
+}
+
+.list_carousel li div.title a:hover {
 	background:#ccc url('../images/filterbtn_over.jpg');	
 }
 
@@ -257,6 +266,7 @@ ul#portfolio-filter a:hover {
 	border-bottom:2px solid #eaeaea;
 	border-top:none;
 	color:#333;
+	height:70px;
 }
 
 .eventtext {
@@ -265,7 +275,7 @@ ul#portfolio-filter a:hover {
 
 .readmore a {
 	text-decoration:none;
-	color:#333;
+	color:#ebebeb;
 	padding: 5px 10px;
 	width:60px;
 	font-size:18px;
@@ -294,7 +304,7 @@ ul#portfolio-filter a:hover {
 	border:1px solid #eaeaea;
 	background:#f5f5f5;
 	width:298px;
-	height:418px;
+	height:450px;
 }
 
 .expired {

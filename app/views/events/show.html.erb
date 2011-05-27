@@ -7,18 +7,20 @@
 
 <!-- Random Feature Event -->
 <div class="grid_4 featured">
-	<h2><span>F</span>eatured Event</h2>
+	<h2>Featured <span>Event</span></h2>
 	<% if !@featrand.nil? %>
 		<% if !@featrand.eventflyer_file_name.nil? %>
-			<%= image_tag @featrand.eventflyer.url(:medium), :alt => @featrand.event_title %>
+			<%= link_to (image_tag @featrand.eventflyer.url(:medium), :alt => @featrand.event_title), @featrand %>
 		<% else %>
-			<%= image_tag('cw300.png') %>
+			<%= link_to image_tag('cw300.png'), @featrand %>
 		<% end %>
-		<h3><%= @featrand.event_title %></h3>
-		<span class="date"><%= @featrand.event_date.strftime("%b %d at %I:%M %p") %></span>
+	<div class="ftext">
+		<h3><%= link_to @featrand.event_title, @featrand %></h3>
+	</div>	
+		<div class="date"><%= @featrand.event_date.strftime("%b %d at %I:%M %p") %></div>
+	
 	<% end %>
 </div>
-<!--  END Random Feature Event -->	
 						
 <!-- Twitter Feed -->
 <div class="grid_4 twitter">
@@ -30,14 +32,14 @@
 	<h2><%= @event.event_title %> : : <span><%= @event.event_date.strftime("%b %d at %I:%M %p") %></span></h2>
 	<div class="grid_8 alpha">
 		<p><%= @event.event_description %></p>
-		<p><%= @event.event_sponsers %></p>
+		<p><b>Event Sponsor(s)</b> <%= @event.event_sponsers %></p>
 		<p class="readmore"><%= link_to 'Back', events_path %></p>
 	</div>
 	<div class="grid_4 omega">
-			<% if !@event.eventflyer.nil? %>
+			<% if !@event.eventflyer_file_name.nil? %>
 				<%= image_tag @event.eventflyer.url(:medium) %>
 			<% else %>
-				<%= image_tag('cw220.png') %>
+				<%= image_tag('cw300.png') %>
 			<% end %>				
 	</div>
 </div>

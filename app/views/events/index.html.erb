@@ -14,9 +14,11 @@
 		<% else %>
 			<%= link_to image_tag('cw300.png'), @featrand %>
 		<% end %>
+	<div class="ftext">
+		<h3><%= link_to @featrand.event_title, @featrand %></h3>
+	</div>	
+		<div class="date"><%= @featrand.event_date.strftime("%b %d at %I:%M %p") %></div>
 	
-	<h3><%= link_to @featrand.event_title, @featrand %></h3>
-	<span class="date"><%= @featrand.event_date.strftime("%b %d at %I:%M %p") %></span>
 	<% end %>
 </div>
 <!--  END Random Feature Event -->	
@@ -43,7 +45,7 @@
 				<% else %>
 					<%= link_to image_tag('cw220.png'), sig %>
 				<% end %>	
-				<span class="title"><%= link_to sig.event_title, sig %></span><br /><br /><span class="dt"><%= sig.event_date.strftime("%b %d at %I:%M %p") %></span>	
+				<div class="title"><%= link_to sig.event_title, sig %></div><br /><br /><div class="dt"><%= sig.event_date.strftime("%b %d at %I:%M %p") %></div>	
 			</li>	
 		<% end %>
 		</ul>
