@@ -28,6 +28,14 @@ body {
 	color:#333;
 }
 
+a {
+	text-decoration:none;
+}
+
+a:hover {
+	text-decoration:underline;
+}
+
 a img {
 	border:none;
 }
@@ -304,7 +312,7 @@ ul#portfolio-filter a:hover {
 	border:1px solid #eaeaea;
 	background:#f5f5f5;
 	width:298px;
-	height:450px;
+	height:480px;
 }
 
 .expired {
@@ -331,6 +339,10 @@ ul#portfolio-filter a:hover {
 	font-family: 'LeagueGothicRegular', arial, serif;
 	text-transform:uppercase;
 	
+}
+
+.eventdate span {
+	color:#90122a;
 }
 
 p.desc {
@@ -382,7 +394,6 @@ p.notice {
 } 
 
 .footer a{
-	text-decoration:underline;
 	color:#90122a;
 } 
 

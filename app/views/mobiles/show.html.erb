@@ -10,7 +10,7 @@
 	<% else %>
 		<%= image_tag('cw220.png') %>
 	<% end %>	
-	<h4><%= @mobile.event_date.strftime("%b %d at %I:%M %p") %></h4>
+	<h4><%= @mobile.event_date.strftime("%b %d at %I:%M %p") %><br /><%= @mobile.event_location %></h4>
 	<p><%= @mobile.event_description %></p>
 	<p><%= @mobile.event_sponsers %></p>
 </div>

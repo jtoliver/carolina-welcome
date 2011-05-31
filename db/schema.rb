@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110509141142) do
+ActiveRecord::Schema.define(:version => 20110531135944) do
 
   create_table "events", :force => true do |t|
     t.string   "event_title"
@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(:version => 20110509141142) do
     t.string   "eventflyer_content_type"
     t.integer  "eventflyer_file_size"
     t.datetime "eventflyer_updated_at"
+    t.string   "event_location"
   end
 
 end

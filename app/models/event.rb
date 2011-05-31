@@ -8,7 +8,7 @@ class Event < ActiveRecord::Base
 		
 	scope :currentevents, lambda {where("event_date > ?" , Time.now.beginning_of_day).order("event_date ASC") }
 	
-	validates :event_title, :event_description, :presence => true
+	validates :event_title, :event_description, :event_location, :presence => true
 	validate :date_logical	
 	
 	def date_logical

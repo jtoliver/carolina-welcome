@@ -7,11 +7,11 @@
 			<tr>
 				<th></th>
 				<th>Event</th>
+				<th>Location</th>
 				<th>Start Date/Time</th>
-				<th>End Date/Time</th
 				<th>Signature Event</th>
 				<th>Featured Event</th>
-				<th></th>
+				<th>Options</th>
 			</tr>
 		</thead>
 		<% @event.each do |e| %>
@@ -19,12 +19,12 @@
 			<tr>
 				<td align="center" valign="middle"><% if !e.eventflyer_file_name.nil? %> <%= image_tag e.eventflyer.url(:mobile), :alt => e.event_title %><% else %><%= image_tag('cw80.png') %><% end %></td>
 				<td><b><%= e.event_title %></b></td>
+				<td><%= e.event_location %>
 				<td><%= e.event_date.strftime("%b %d at %I:%M %p") %></td>
-				<td><%= e.event_dateend.strftime("%b %d at %I:%M %p") %></td>
 				<td><% if e.event_status_sig == true %> Yes <% else %> No <% end %></td>
 				<td><% if e.event_status_feat == true %> Yes <% else %> No <% end %></td>
 				<td>
-					<%= link_to 'Edit/Show', edit_event_path(e) %> |
+					<%= link_to 'Edit/Show', edit_event_path(e) %><br />
 					<%= link_to 'Delete', e, :confirm => 'Are you sure you want to delete this? If so, all event information will be lost.', :method => :delete %></td>				
 				</td>
 			</tr>

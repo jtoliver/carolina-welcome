@@ -11,7 +11,8 @@ class EventsController < ApplicationController
 		@feat = Event.currentevents.where(:event_status_feat => true)
 		@featrand = @feat[rand(@feat.count)]
 		
-		@eventdate = Event.currentevents.group("date(event_date)").order("event_date")
+		#@eventdate = Event.currentevents.group("date(event_date)").order("event_date")
+		@eventdate = Event.currentevents.group_by{ |e| e.event_date.beginning_of_day } 
 
 		if mobile_device?
 			redirect_to :controller => "mobiles", :action => "index"

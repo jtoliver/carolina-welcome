@@ -29,7 +29,7 @@
 </div>
 <!-- END Twitter Feed -->
 <div class="grid_12">
-	<h2><%= @event.event_title %> : : <span><%= @event.event_date.strftime("%b %d at %I:%M %p") %></span></h2>
+	<h2><%= @event.event_title %> - <span><%= @event.event_date.strftime("%b %d at %I:%M %p") %></span> - <%= @event.event_location %></h2>
 	<div class="grid_8 alpha">
 		<p><%= @event.event_description %></p>
 		<p><b>Event Sponsor(s)</b> <%= @event.event_sponsers %></p>

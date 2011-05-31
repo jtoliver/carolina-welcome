@@ -6,21 +6,25 @@
 	<%= javascript_include_tag :all %>
 	<%= csrf_meta_tag %>
 </head>
-<body>
-	<div class="container_12">
-		<%= yield %>
-		<div class="grid_12 footer">
-			<div class="grid_2 suffix_6 alpha">
-				<%= link_to image_tag('footer_logo.png'), 'http://www.sa.sc.edu/stlife' %>
-			</div>	
-			<div class="grid_4  omega">
-				<h3>For more information contact</h3>
-				<p><b>Ryan Gross</b> <br />
-				<a href="mailto:grossrr@mailbox.sc.edu">grossrr@mailbox.sc.edu</a><br />
-				Russell House University Union, Suite 218<br />
-				Phone (803) 777-8182</p>		
+	<body>
+		<div class="container_12">
+			<%= yield %>
+			<div class="grid_12 footer">
+				<div class="grid_2 suffix_2 alpha">
+					<%= link_to image_tag('footer_logo.png'), 'http://www.sa.sc.edu/stlife' %>
+				</div>	
+				<div class="grid_4 links">
+					<h3>Links</h3>
+					<%= link_to 'University Housing - USC Welcome', 'http://www.housing.sc.edu/USCwelcome' %>		
+				</div>
+				<div class="grid_4  omega">
+					<h3>For more information contact</h3>
+					<p><b>Ryan Gross</b> <br />
+					<a href="mailto:grossrr@mailbox.sc.edu">grossrr@mailbox.sc.edu</a><br />
+					Russell House University Union, Suite 218<br />
+					Phone (803) 777-8182</p>		
+				</div>
 			</div>
 		</div>
-	</div>
-</body>
+	</body>
 </html>
