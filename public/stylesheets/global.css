@@ -103,7 +103,7 @@ h3 {
 
 a {
 	text-decoration:none;
-	color:#131313;
+	color:#333;
 }
 
 /* Featured
@@ -119,7 +119,7 @@ a {
 .featured h3 a, .featured h3 {
 	color:#ebebeb;
 	font-size:22px;
-	padding: 10px;
+	padding: 10px 10px 10px 0;
 	font-family: 'LeagueGothicRegular', arial, serif;
 	text-transform:uppercase;
 	position:relative;
@@ -219,9 +219,9 @@ ul#portfolio-filter a:hover {
 	font-size:16px;
 	font-family: 'LeagueGothicRegular', arial, serif;
 	border-bottom:1px dotted #ccc;
-	width:214px;
+	width:207px;
 	color:#333;
-	padding:3px;
+	padding:3px 3px 3px 10px;
 	text-transform:uppercase;
 	margin-top:-30px;
 }
@@ -338,6 +338,7 @@ ul#portfolio-filter a:hover {
 	color:#666;
 	font-family: 'LeagueGothicRegular', arial, serif;
 	text-transform:uppercase;
+	height:55px;
 	
 }
 
